@@ -1,0 +1,127 @@
+{% extends 'Blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-10">
+    <h3 class="text-white my-5">Contact page</h3>
+</div>
+
+{% if messages %}
+            {% for message in messages %}
+              <p {% if message.tags %} class="alert alert-{{ message.tags }} mb-5" {% endif %}>
+                  {{message}}
+              </p>           
+            {% endfor %}
+        {% endif %}
+
+
+
+<div class="jumbotron jumbotron-fluid jumbo-color ml-5">
+  <div class="container">
+    <form action="/detailcontact" method="POST">
+    {% csrf_token %}
+      <div class="form-row ">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" name='first_name'>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name='last_name'>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Mobile No.</label>
+            <input type="number" class="form-control" name='mobile'>
+        </div>
+        <div class="form-group col-md-6 ">
+            <label for="exampleInputEmail1 ">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name='email'>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Address</label>
+          <input type="text" class="form-control" placeholder="1234 Main St" name='address1'>
+        </div>
+        <div class="form-group col-md-6">
+          <label>Address 2</label>
+          <input type="text" class="form-control" placeholder="Apartment, studio, or floor" name='address2'>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label >State</label>
+            <!--<input type="text" class="form-control" name='city'>-->
+            <select  class="form-control" name='city'>
+            <option>Madhya Pradesh</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label >City</label>
+            <select  class="form-control" name='state'>
+              <option selected>Choose...</option>
+              <option>Agar Malwa</option>
+              <option>Alirajpur</option>
+              <option>Anuppur</option>
+              <option>Ashoknagar</option>
+              <option>Balaghat</option>
+              <option>Bhind</option>
+              <option>Betul</option>
+              <option>Burhanpur</option>
+              <option>Bhopal</option>
+              <option>Chhatarpur</option>
+              <option>Chhindwara</option>
+              <option>Damoh</option>
+              <option>Datia</option>
+              <option>Dewas</option>
+              <option>Dhar</option>
+              <option>Dindori</option>
+              <option>Guna</option>
+              <option>Gwalior</option>
+              <option>Harda</option>
+              <option>Hoshangabad</option>
+              <option>Indore</option>
+              <option>J-R</option>
+              <option>Jabalpur</option>
+              <option>Jhabua</option>
+              <option>Katni</option>
+              <option>Khandwa</option>
+              <option>Khargone</option>
+              <option>Mandla</option>
+              <option>Mandsaur</option>
+              <option>Morena</option>
+              <option>Narsinghpur</option>
+              <option>Neemuch</option>
+              <option>Panna</option>
+              <option>Raisen</option>
+              <option>Rajgarh</option>
+              <option>Ratlam</option>
+              <option>Rewa</option>
+              <option>S-Z</option>
+              <option>Sagar</option>
+              <option>Satna</option>
+              <option>Sehore</option>
+              <option>Seoni</option>
+              <option>Shahdol</option>
+              <option>Shajapur</option>
+              <option>Sheopur</option>
+              <option>Shivpuri</option>
+              <option>Sidhi</option>
+              <option>Singrauli</option>
+              <option>Tikamgarh</option>
+              <option>Ujjain</option>
+              <option>Umaria</option>
+              <option>Vidisha</option>
+
+
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label>Zip</label>
+            <input type="number" class="form-control" name='pincode'>
+        </div>
+      </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{% url 'home' %}" class="btn btn-warning">Home</a>
+    </form>
+  </div>
+</div>
+{% endblock content %}
